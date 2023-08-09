@@ -8,13 +8,8 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 
 async function bootstrap() {
-  // const app = await NestFactory.create(AppModule, {cors:true});
-  const app = await NestFactory.create(AppModule, {cors:{
-      origin: 'https://beautiful-genie-faedbe.netlify.app',
-      methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-      credentials: true,
-  }});
-
+  const app = await NestFactory.create(AppModule, {cors:true});
+  
   const PORT = process.env.PORT;
   app.use(cookieParser());
   app.useGlobalPipes(new ValidationPipe());
